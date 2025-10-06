@@ -13,7 +13,7 @@ function openGroupama() {
   } 
   // Android
   else if (/android/i.test(userAgent)) {
-    window.location = "intent://open#Intent;scheme=cs-fr.groupama.tierspayant;package=com.groupama.tierspayant;end";
+    window.location = "intent://open#Intent;scheme=cs-com.groupama.tiersPayant;package=com.groupama.tiersPayant;end";
   } 
   // Desktop fallback
   else {
@@ -24,6 +24,7 @@ function openGroupama() {
 
 <button onclick="openGroupama()">Open Groupama et moi</button>
 </body>
+
 
 
 
