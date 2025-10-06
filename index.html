@@ -2,11 +2,11 @@
 <script>
 function openGroupama() {
   var userAgent = navigator.userAgent || navigator.vendor || window.opera;
-  window.location = "https://example.org/?ua=" + userAgent;
   // iOS
   // if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
   if (true) {
-    window.location = "cs-fr.groupama.tierspayant://open";
+    // window.location = "cs-fr.groupama.tierspayant://open";
+    window.location = "https://example.org/?ua=" + userAgent;
     setTimeout(function() {
       // App Store fallback
       window.location = "https://apps.apple.com/app/id1324024096"; 
@@ -25,6 +25,7 @@ function openGroupama() {
 
 <button onclick="openGroupama()">Open Groupama et moi</button>
 </body>
+
 
 
 
