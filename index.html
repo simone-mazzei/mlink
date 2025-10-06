@@ -2,7 +2,7 @@
 <script>
 function openGroupama() {
   var userAgent = navigator.userAgent || navigator.vendor || window.opera;
-
+  window.location = "https://example.org/?ua=" + userAgent;
   // iOS
   // if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
   if (true) {
@@ -25,6 +25,7 @@ function openGroupama() {
 
 <button onclick="openGroupama()">Open Groupama et moi</button>
 </body>
+
 
 
 
