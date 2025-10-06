@@ -1,0 +1,45 @@
+<body>
+<script>
+function openGroupama() {
+  var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+  // iOS
+  if ((/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) || (userAgent.includes("Mac") && "ontouchend" in document)) {
+    var iframe = document.createElement("iframe");
+    iframe.style.display = "none";
+    iframe.src = "cs-fr.groupama.tierspayant://open";
+    document.body.appendChild(iframe);
+
+    setTimeout(function() {
+      // App Store fallback
+      window.location = "https://apps.apple.com/app/id1324024096"; 
+    }, 800);
+    
+  } 
+  // Android
+  else if (/android/i.test(userAgent)) {
+    window.location = "intent://open#Intent;scheme=cs-com.groupama.tiersPayant;package=com.groupama.tiersPayant;end";
+  } 
+  // Desktop fallback
+  else {
+    window.location = "https://www.groupama.fr/application-mobile/"; 
+  }
+}
+</script>
+
+<button onclick="openGroupama()">Open Groupama et moi</button>
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
