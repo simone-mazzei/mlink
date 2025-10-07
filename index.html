@@ -2,14 +2,14 @@
 <script>
 function openGroupama() {
   var focusDone = false;
-  var blurDone = false;
+  var blurCount = 0;
   var userAgent = navigator.userAgent || navigator.vendor || window.opera;
   // iOS
   if ((/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) || (userAgent.includes("Mac") && "ontouchend" in document)) {
     window.location = "cs-fr.groupama.tierspayant://open";
     
     window.addEventListener("blur", () => {
-      blurDone = true;
+      blurCount++;
     });
     
     window.addEventListener('focus', () => {
@@ -17,7 +17,7 @@ function openGroupama() {
         focusDone = true;
         setTimeout(function() {
         // App Store fallback
-        if (!blurDone) {
+        if (blurCount<2) {
           window.location = "https://apps.apple.com/app/id1324024096";
         }
         }, 1700);
@@ -38,6 +38,7 @@ function openGroupama() {
 
 <button onclick="openGroupama()">Open Groupama et moi</button>
 </body>
+
 
 
 
