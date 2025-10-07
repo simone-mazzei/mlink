@@ -8,14 +8,15 @@ function openGroupama() {
     window.location = "cs-fr.groupama.tierspayant://open";
     window.addEventListener('focus', () => {
       if (focusDone) {
-        return;
+        window.close();
       }
-      focusDone = true;
-      setTimeout(function() {
-      // App Store fallback
-      window.location = "https://apps.apple.com/app/id1324024096";
-      window.close();
-      }, 700);    
+      else {
+        focusDone = true;
+        setTimeout(function() {
+        // App Store fallback
+        window.location = "https://apps.apple.com/app/id1324024096";
+        }, 700);
+      }
     });
   } 
   // Android
@@ -31,6 +32,7 @@ function openGroupama() {
 
 <button onclick="openGroupama()">Open Groupama et moi</button>
 </body>
+
 
 
 
