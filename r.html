@@ -1,1 +1,49 @@
+<!DOCTYPE html>
+<head><title>Deep Link Redirect</title>
+    <meta name="robots" content="noindex,nofollow">
+</head>
+<body>
+    <h1>Redirecting you to the app...</h1>
+    <script>
+        function isIOS(userAgent) {
+            return (/iPad|iPhone|iPod/.test(userAgent) && !userAgent.includes('Windows')) || (userAgent.includes("Mac") && "ontouchend" in document);
+        }
+    
+        function redirectToApp(appUrl, storeUrl, fallbackUrl) {
+            const timeout = 3000;
+            let hasFocus = true;
+            let didHide = false;
+            window.addEventListener('blur', () => {
+                hasFocus = false;
+            });
+            document.addEventListener('visibilitychange', (e) => {
+                if (e.target.visibilityState === 'hidden') {
+                    didHide = true;
+                }
+            });
+            window.addEventListener('focus', () => {
+                if (didHide) {
+                    window.location = fallbackUrl;
+                }
+            });
+            setTimeout(() => {
+                if (!hasFocus) {
+                    window.location = storeUrl;
+                } else {
+                    window.location = fallbackUrl;
+                }
+            }, timeout);
+            window.location = appUrl;
+        }
+    
+        document.addEventListener('DOMContentLoaded', () => {
+            const userAgent = navigator.userAgent;
+            const isIosDevice = isIOS(userAgent);
+            const appUrl = isIosDevice ? 'cs-fr.groupama.tierspayant://open' : 'intent://open#Intent;scheme=cs-com.groupama.tiersPayant;package=com.groupama.tiersPayant;end';
+            const storeUrl = isIosDevice ? 'https://apps.apple.com/app/id1324024096' : 'your-android-store-url';
+            const fallbackUrl = 'https://www.groupama.fr/application-mobile/';
+            redirectToApp(appUrl, storeUrl, fallbackUrl);
+        });
+    </script>
+</body>
 
