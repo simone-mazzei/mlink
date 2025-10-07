@@ -13,7 +13,9 @@ function openGroupama() {
         // App Store fallback
         // window.location = "https://apps.apple.com/app/id1324024096";
         var store = window.open("https://apps.apple.com/app/id1324024096");
-        store.close();
+        setTimeout(function() { 
+          store.close();
+        }, 1200)
         }, 1200);
       }
     });
@@ -31,6 +33,7 @@ function openGroupama() {
 
 <button onclick="openGroupama()">Open Groupama et moi</button>
 </body>
+
 
 
 
