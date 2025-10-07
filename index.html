@@ -16,8 +16,8 @@ function openGroupama() {
         }, 1500);
       }
     });
-    document.addEventListener("visibilitychange", () => {
-      if (document.visibilityState === "hidden") {
+    window.addEventListener("blur", () => {
+      if (tout) {
         window.location="http://google.com/";
       clearTimeout(tout);
   }
@@ -36,6 +36,7 @@ function openGroupama() {
 
 <button onclick="openGroupama()">Open Groupama et moi</button>
 </body>
+
 
 
 
