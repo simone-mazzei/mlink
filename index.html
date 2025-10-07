@@ -1,7 +1,7 @@
 <body>
 <script>
 function openGroupama() {
-  window.addEventListener("beforeunload", (event) => {
+  window.addEventListener("pagehide", (event) => {
   alert("via");
 });
   var focusDone = false;
@@ -32,6 +32,7 @@ function openGroupama() {
 
 <button onclick="openGroupama()">Open Groupama et moi</button>
 </body>
+
 
 
 
