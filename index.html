@@ -6,18 +6,21 @@ function openGroupama() {
   // iOS
   if ((/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) || (userAgent.includes("Mac") && "ontouchend" in document)) {
     window.location = "cs-fr.groupama.tierspayant://open";
+    var tout;
     window.addEventListener('focus', () => {
       if (!focusDone) {
         focusDone = true;
-        var timeout = setTimeout(function() {
+        tout = setTimeout(function() {
         // App Store fallback
         window.location = "https://apps.apple.com/app/id1324024096";
         }, 1500);
-        window.addEventListener('blur', () => {
-        clearTimeout(timeout);
-      });
       }
     });
+    document.addEventListener("visibilitychange", () => {
+      if (document.visibilityState === "hidden") {
+      clearTimeout(tout);
+  }
+});
   } 
   // Android
   else if (/android/i.test(userAgent)) {
@@ -32,6 +35,7 @@ function openGroupama() {
 
 <button onclick="openGroupama()">Open Groupama et moi</button>
 </body>
+
 
 
 
