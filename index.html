@@ -7,12 +7,15 @@ function openGroupama() {
   if ((/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) || (userAgent.includes("Mac") && "ontouchend" in document)) {
     window.location = "cs-fr.groupama.tierspayant://open";
     window.addEventListener('focus', () => {
+      var timeout;
       if (!focusDone) {
         focusDone = true;
-        setTimeout(function() {
+        timeout = setTimeout(function() {
         // App Store fallback
         window.location = "https://apps.apple.com/app/id1324024096";
         }, 1500);
+      } else if (timeout) {
+        clearTimeout(timeout);
       }
     });
   } 
@@ -29,6 +32,7 @@ function openGroupama() {
 
 <button onclick="openGroupama()">Open Groupama et moi</button>
 </body>
+
 
 
 
