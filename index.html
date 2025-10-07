@@ -1,6 +1,10 @@
 <body>
+<script src="https://cdn.jsdelivr.net/npm/ua-parser-js/dist/ua-parser.min.js"></script>
 <script>
 function openGroupama() {
+  const uap = new UAParser();
+  alert(JSON.stringfy(uap.getResult()));
+
   var focusDone = false;
   var userAgent = navigator.userAgent || navigator.vendor || window.opera;
   // iOS
@@ -32,6 +36,7 @@ function openGroupama() {
 
 <button onclick="openGroupama()">Open Groupama et moi</button>
 </body>
+
 
 
 
