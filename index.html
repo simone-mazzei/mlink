@@ -1,9 +1,6 @@
 <body>
 <script>
 function openGroupama() {
-  window.addEventListener("pagehide", (event) => {
-  alert("via");
-});
   var focusDone = false;
   var userAgent = navigator.userAgent || navigator.vendor || window.opera;
   // iOS
@@ -15,7 +12,7 @@ function openGroupama() {
         setTimeout(function() {
         // App Store fallback
         window.location = "https://apps.apple.com/app/id1324024096";
-        }, 1200);
+        }, 1500);
       }
     });
   } 
@@ -32,6 +29,7 @@ function openGroupama() {
 
 <button onclick="openGroupama()">Open Groupama et moi</button>
 </body>
+
 
 
 
