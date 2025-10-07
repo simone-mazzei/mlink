@@ -2,27 +2,28 @@
 <script>
 function openGroupama() {
   var focusDone = false;
+  var blurDone = false;
   var userAgent = navigator.userAgent || navigator.vendor || window.opera;
   // iOS
   if ((/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) || (userAgent.includes("Mac") && "ontouchend" in document)) {
     window.location = "cs-fr.groupama.tierspayant://open";
-    var tout;
+    
+    window.addEventListener("blur", () => {
+      blurDone = true;
+    });
+    
     window.addEventListener('focus', () => {
       if (!focusDone) {
         focusDone = true;
-        tout = setTimeout(function() {
+        setTimeout(function() {
         // App Store fallback
-        if (!document.hidden) {
+        if (!blurDone) {
           window.location = "https://apps.apple.com/app/id1324024096";
         }
         }, 1700);
       }
     });
-    window.addEventListener("blur", () => {
-      if (tout) {
-        clearTimeout(tout);
-  }
-});
+    
   } 
   // Android
   else if (/android/i.test(userAgent)) {
@@ -37,6 +38,7 @@ function openGroupama() {
 
 <button onclick="openGroupama()">Open Groupama et moi</button>
 </body>
+
 
 
 
