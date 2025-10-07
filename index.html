@@ -12,13 +12,10 @@ function openGroupama() {
         var timeout = setTimeout(function() {
         // App Store fallback
         window.location = "https://apps.apple.com/app/id1324024096";
+        }, 1500);
         window.addEventListener('blur', () => {
         clearTimeout(timeout);
       });
-        }, 1500);
-      } else if (timeout) {
-        alert("aaa");
-        clearTimeout(timeout);
       }
     });
   } 
@@ -35,6 +32,7 @@ function openGroupama() {
 
 <button onclick="openGroupama()">Open Groupama et moi</button>
 </body>
+
 
 
 
