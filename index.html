@@ -2,7 +2,6 @@
 <script>
 function openGroupama() {
   var focusDone = false;
-  var hideDone = false;
   var userAgent = navigator.userAgent || navigator.vendor || window.opera;
   // iOS
   if ((/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) || (userAgent.includes("Mac") && "ontouchend" in document)) {
@@ -12,12 +11,8 @@ function openGroupama() {
         focusDone = true;
         setTimeout(function() {
         // App Store fallback
-        if (document.visibilityState !== "hidden") {
           window.location = "https://apps.apple.com/app/id1324024096";
-        } else {
-          window.location = "https://example.org/"
-        }
-        }, 1500);
+        }, 1000);
       }
     });
 
@@ -35,8 +30,9 @@ function openGroupama() {
 }
 </script>
 
-<button onclick="openGroupama()">Open Groupama et moi 1500 H</button>
+<button onclick="openGroupama()">Open Groupama et moi 1000</button>
 </body>
+
 
 
 
