@@ -1,6 +1,9 @@
 <body>
 <script>
 function openGroupama() {
+  window.addEventListener("beforeunload", (event) => {
+  alert("via");
+});
   var focusDone = false;
   var userAgent = navigator.userAgent || navigator.vendor || window.opera;
   // iOS
@@ -29,6 +32,7 @@ function openGroupama() {
 
 <button onclick="openGroupama()">Open Groupama et moi</button>
 </body>
+
 
 
 
