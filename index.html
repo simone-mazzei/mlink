@@ -17,8 +17,9 @@ function openGroupama() {
         focusDone = true;
         setTimeout(function() {
         // App Store fallback
-        if (blurCount<2) {
-          window.location = "https://apps.apple.com/app/id1324024096";
+        if (true) {
+          // window.location = "https://apps.apple.com/app/id1324024096";
+          window.location = "http://example.org/?bc=" + blurCount;
         }
         }, 1700);
       }
@@ -38,6 +39,7 @@ function openGroupama() {
 
 <button onclick="openGroupama()">Open Groupama et moi</button>
 </body>
+
 
 
 
