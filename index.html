@@ -7,10 +7,7 @@ function openGroupama() {
   if ((/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) || (userAgent.includes("Mac") && "ontouchend" in document)) {
     window.location = "cs-fr.groupama.tierspayant://open";
     window.addEventListener('focus', () => {
-      if (focusDone) {
-        window.close();
-      }
-      else {
+      if (!focusDone) {
         focusDone = true;
         setTimeout(function() {
         // App Store fallback
@@ -32,6 +29,7 @@ function openGroupama() {
 
 <button onclick="openGroupama()">Open Groupama et moi</button>
 </body>
+
 
 
 
